@@ -4,6 +4,7 @@ import listEndpoints from "express-list-endpoints";
 import mongoose from "mongoose";
 import blogPostRouter from "./services/blogposts/index.js";
 import authorsRouter from "./services/authors/index.js";
+import usersRouter from "./services/users/index.js";
 
 const server = express();
 
@@ -13,6 +14,7 @@ server.use(cors());
 server.use(express.json());
 server.use("/blogposts", blogPostRouter);
 server.use("/authors", authorsRouter);
+server.use("/", usersRouter);
 
 mongoose.connect(process.env.CONNECTION_STRING);
 
